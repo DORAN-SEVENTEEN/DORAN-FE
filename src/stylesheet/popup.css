@@ -30,8 +30,13 @@
   float: right;
 }
 
-.modal-text-div {
+.modal-div {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3개의 열을 생성 */
-  gap: 10px; /* 열과 행 사이의 간격을 조절합니다. 필요에 따라 조절하세요. */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 30px;
+}
+button {
+  border: none;
+  background-color: #edd6d6;
 }
