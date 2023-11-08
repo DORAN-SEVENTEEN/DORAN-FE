@@ -4,6 +4,10 @@ import Calendar from 'react-calendar';
 import "../stylesheet/calender.css";
 import 'react-calendar/dist/Calendar.css';
 
+import dayjs from 'dayjs';
+import Header from "../components/header";
+
+
 
 function Calender() {
   let navigate = useNavigate();
@@ -12,32 +16,49 @@ function Calender() {
 
   return (
     <div className="container">
-      <button
-        onClick={() => {
-          navigate("/all");
-        }}
-      >
-        모아보기로 가는 버튼
-      </button>
-
-      {/* 달력 */}
-      <div className='calendar'>
-        <div className='calendar-container'>
-          <Calendar onChange={setDate} value={date} />
-        </div>
-        <p className='text-center'>
-          <span className='bold'></span>{' '}
-          {date.toDateString()}
-        </p>
-      </div>
-      {/* 기록하기 이동하기 */}
-      <button className="btn10"
+      <div style={{ display: "flex", alignItems: 'center'}}>
+      <Header/>
+        <div className="next-all"
           onClick={() => {
-            navigate("/diary");
+            navigate("/all");
           }}
         >
-          오늘 하루 
-        </button>
+          <img src="./img/bookmark.png" alt="모아보기로이동" style={{marginLeft: "27px", marginTop: "-15px", width: "48px"
+          }}/>
+        </div>
+      </div>
+     
+      
+        <div className="calender-page">
+        {/* 달력 */}
+        <p className='text-center'>
+            <span className='bold'></span>{' '}
+            {date.toDateString()}
+          </p>
+        <div className='calendar'>
+          <div className='calendar-container'>
+            <Calendar onChange={setDate} value={date} 
+            formatDay ={(locale, date) => dayjs(date).format('DD')}/>
+          </div>
+        </div>
+        {/* 기록하기 이동하기 */}
+        <button className="btn10"
+            onClick={() => {
+              navigate("/diary");
+            }}
+          >
+            오늘 하루 고민을 기록해보아요!
+          </button>
+          <div className="all-content">
+          <div className="whitebox">
+            <div className="Emogi">emogi</div>
+            <div className="dateinfo">
+            Wednesday, November 6, 2023
+            </div>
+            <div className="text">도란도란</div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

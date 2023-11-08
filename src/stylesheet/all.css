@@ -10,12 +10,17 @@
   letter-spacing: 0.34px;
 }
 
-.all-content {
-  background: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.next-calender {
+  width: 43px;
+  height: 40px;
+  flex-shrink: 0;
+  margin-left: 12px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.all-page {
+  margin-top: 30px;
 }
 
 .whitebox {
