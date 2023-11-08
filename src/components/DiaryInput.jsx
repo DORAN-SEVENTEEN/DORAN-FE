@@ -8,9 +8,12 @@ import { FileImageOutlined } from "@ant-design/icons";
 import html2canvas from "html2canvas";
 const { TextArea } = Input;
 import Header from "../components/header";
+import axios from "axios";
 
-const DiaryInput = ({ isLoading, onSubmit, messageApi }) => {
+const DiaryInput = ({ isLoading, onSubmit, messageApi, id }) => {
   const [userInput, setUserInput] = useState("");
+
+
   // 사용자의 입력을 받아, 상위컴포넌트로 데이터를 전달
 
   // loading 상태 - 사용자가 제출버튼을 못 누르도록 처리
@@ -54,7 +57,13 @@ const DiaryInput = ({ isLoading, onSubmit, messageApi }) => {
 
   };
 
-
+//일기 저장
+const saveDiary = () => {
+  axios.put('http://localhost:3001/update/contents', {
+    id :id,
+    contents: userInput
+  })
+}
 
   return (
     <div>
@@ -73,7 +82,10 @@ const DiaryInput = ({ isLoading, onSubmit, messageApi }) => {
           GPT 회고록을 작성해줘!
         </Button>
         <Button
-        style={{background: "#f1b1b0", border:"none"}}>
+        style={{background: "#f1b1b0", border:"none"}}
+        onClick={()=>{
+          saveDiary
+        }}>
           일기 저장
         </Button>
        

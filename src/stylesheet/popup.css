@@ -43,6 +43,7 @@ button {
 
 img {
   width: 80px;
+  cursor: pointer;
 }
 
 .x-btn {
@@ -54,4 +55,5 @@ img {
   font-weight: 700;
   background: #fff;
   color: #f1b1b0;
+  cursor: pointer;
 }

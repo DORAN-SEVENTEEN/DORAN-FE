@@ -1,12 +1,18 @@
 .logo {
   color: #f1b1b0;
-  font-size: 45px;
+  font-size: 55px;
   font-weight: 700;
-  margin-left: 20px;
+  margin-left: 50px;
+  font-family: "BMJUA", sans-serif;
 }
 
 .header-container {
   display: flex;
   align-items: center;
   margin-left: 40px;
+}
+.backImg {
+  width: 60px;
+  cursor: pointer;
+  margin-top: -18px;
 }

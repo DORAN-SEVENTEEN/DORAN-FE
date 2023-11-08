@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 
 /* eslint-disable react/prop-types */
 import {
@@ -22,7 +23,7 @@ import {
     margin-bottom: 15px;
   `;
   
- 
+
   // eslint-disable-next-line react/prop-types
   const DiaryDisplay = ({ data, isLoading }) => {
     return (
@@ -40,7 +41,8 @@ import {
         <CardContainer>
         <CardTitle style={{ display: 'flex', alignItems: 'center' }}>
            <img src="./img/icon4.png" alt="사진"
-           style={{height:'40px', width: '40px', marginRight: '20px'}}/>
+           style={{height:'40px', width: '40px', marginRight: '20px'
+           ,marginLeft: '25px'}}/>
             내 감정 요약
           </CardTitle>
           <CardContent>{data.summary}</CardContent>
@@ -52,9 +54,10 @@ import {
         <CardContainer>
         <CardTitle style={{ display: 'flex', alignItems: 'center' }}>
           <img src="./img/icon1.png" alt="사진"
-                     style={{height:'40px', width: '40px', marginRight: '20px'}}/>
+                     style={{height:'40px', width: '40px', marginRight: '20px',
+                     marginLeft: '30px'}}/>
         
-            감성일기장
+            감성 일기장
           </CardTitle>
           <CardContent>{data.emotional_content}</CardContent>
         </CardContainer>
@@ -63,7 +66,8 @@ import {
         <CardContainer>
         <CardTitle style={{ display: 'flex', alignItems: 'center' }}>
           <img src="./img/icon5.png" alt="사진"
-                     style={{height:'40px', width: '40px', marginRight: '20px'}}/>
+                     style={{height:'40px', width: '40px', marginRight: '20px'
+                     ,marginLeft: '20px'}}/>
 
             내가 느낀 감정
           </CardTitle>
@@ -74,10 +78,11 @@ import {
         <CardContainer>
         <CardTitle style={{ display: 'flex', alignItems: 'center' }}>
           <img src="./img/icon3.png" alt="사진"
-                     style={{height:'40px', width: '40px', marginRight: '20px'}}/>
+                     style={{height:'40px', width: '40px', marginRight: '20px'
+                     ,marginLeft: '40px'}}/>
 
 
-            심리 분석
+           일기 분석
           </CardTitle>
           <CardContent>{data.analysis}</CardContent>
         </CardContainer>
@@ -86,9 +91,10 @@ import {
         <CardContainer>
         <CardTitle style={{ display: 'flex', alignItems: 'center' }}>
           <img src="./img/icon2.png" alt="사진"
-                     style={{height:'40px', width: '40px', marginRight: '20px'}}/>
+                     style={{height:'40px', width: '40px', marginRight: '20px'
+                     ,marginLeft: '15px'}}/>
 
-            GPT 조언
+            나에게 주는 조언
           </CardTitle>
           <CardContent>
             {data.action_list.map((action, index) => (

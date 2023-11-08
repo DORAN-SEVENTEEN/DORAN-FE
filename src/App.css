@@ -1,7 +1,16 @@
+@font-face {
+  font-family: "BMJUA";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 body {
   text-align: center;
   background-color: rgb(198, 198, 197);
+  font-family: "Jua", sans-serif;
 }
+
 .container {
   width: 500px;
   background-color: #fff;
@@ -14,4 +23,19 @@ body {
   padding: 10px;
   margin-bottom: 20px;
   font-weight: 800;
+}
+.container::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+.container::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+.container::-webkit-scrollbar-thumb {
+  background-color: #fff;
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+  background: #f1f1f1;
 }
