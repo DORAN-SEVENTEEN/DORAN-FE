@@ -1,9 +1,10 @@
 .main-page {
-  margin-top: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: #f1b1b0;
+  height: 100vh;
 }
 
 .sub-title {
@@ -11,10 +12,10 @@
   height: 30.31px;
   flex-shrink: 0;
 
-  color: #f1b1b0;
+  color: #fff;
 
   text-align: center;
-  font-family: Inter;
+  font-family: BMJUA;
   font-size: 28px;
   font-style: normal;
   font-weight: 400;
@@ -22,9 +23,9 @@
 }
 
 .title {
-  color: #f1b1b0;
+  color: #fff;
   text-align: center;
-  font-family: Inter;
+  font-family: BMJUA;
   font-size: 45px;
   font-style: normal;
   font-weight: 700;
@@ -43,10 +44,29 @@
   color: #fff;
 
   text-align: center;
-  font-family: Inter;
+  font-family: BMJUA;
   font-size: 15px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
   cursor: pointer;
 }
+
+.btn15{
+    background-color: #fff;
+    color: #f1b1b0;
+    margin: 20px;
+    border: none;
+    padding: 7px 35px;
+    border-radius: 10px;
+    cursor: pointer;
+  
+    color: #f1b1b0;
+  
+    text-align: center;
+    font-family: BMJUA;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }

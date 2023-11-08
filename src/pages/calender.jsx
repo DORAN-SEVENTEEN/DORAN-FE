@@ -3,9 +3,24 @@ import { useState } from 'react';
 import Calendar from 'react-calendar';
 import "../stylesheet/calender.css";
 import 'react-calendar/dist/Calendar.css';
+import axios from "axios";
 
 import dayjs from 'dayjs';
 import Header from "../components/header";
+
+
+/* axios({
+  method: 'get',
+  url: "http://3.39.75.2:8080//read/diaries-day",
+  data: {
+    id: 1,
+    date: "2023-11-08",
+    iconUrl: "111",
+    contents: "첫 번째",
+    resultUrl: "111"
+  }
+}); */
+
 
 function Calender() {
   let navigate = useNavigate();
@@ -19,6 +34,26 @@ function Calender() {
     setSelectedDateString(newDate.toDateString()); // 선택된 날짜 문자열을 업데이트
   }
 console.log(selectedDateString);
+  const [selectedicon, setselectedicon] = useState(null);
+  const [diarycontents, setdiarycontents] = useState(null);
+  
+  
+  //선택한 날의 일기 조회
+  axios.get("http://3.39.75.2:8080//read/diaries-day", {
+    params: {
+      ID: date.toDateString()
+    }
+  })
+  //응답 성공
+  .then((response) =>{
+    setselectedicon(response.data.iconUrl);
+    setdiarycontents(response.data.contents);
+  })
+  //응답 실패
+  .catch((error) => {
+    console.log(error);
+  })
+
   return (
     <div className="container">
       <div style={{ display: "flex", alignItems: 'center'}}>
@@ -28,12 +63,12 @@ console.log(selectedDateString);
             navigate("/all");
           }}
         >
-          <img src="./img/bookmark.png" alt="모아보기로이동" style={{marginLeft: "45px", marginTop: "-18px", width: "48px"
+          <img src="./img/bookmark.png" alt="모아보기로이동" style={{marginLeft: "30px", marginTop: "-23px", width: "48px"
           }}/>
         </div>
       </div>
-     
-      <div className="calender-page">
+      
+        <div className="calender-page">
         {/* 달력 */}
         <p className='text-center'>
             <span className='bold'></span>{' '}
@@ -54,14 +89,22 @@ console.log(selectedDateString);
             }}
           >
             오늘 하루 고민을 기록해보아요!
-        </button>
-        <div className="all-content">
+          </button>
+
+          {/* 날짜 선택하면 일기조회 */}
+          <div className="all-content">
           <div className="whitebox">
-            <div className="Emogi">emogi</div>
-            <div className="dateinfo">
-            Wednesday, November 6, 2023
+            <div className="Emogi">
+            <img src={selectedicon ? selectedicon.iconUrl : ""} alt="Emogi" />
             </div>
-            <div className="text">도란도란</div>
+            <div className="dateinfo">
+              <p>
+            <span className='bold'></span>{' '}
+            {date.toDateString()}
+              </p>
+            </div>
+            <div className="text">
+              {diarycontents ? diarycontents.contents : ""}</div>
           </div>
         </div>
       </div>

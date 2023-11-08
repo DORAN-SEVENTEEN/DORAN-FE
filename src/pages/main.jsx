@@ -7,6 +7,9 @@ function Main() {
   return (
     <div className="container">
       <div className="main-page">
+        <div className="img1">
+        <img src="./img/Group189.png" alt="말풍선"/>
+        </div>
         <div className="main-box">
           <div className="logo">
             <img src="" alt="logo"/>
@@ -16,12 +19,12 @@ function Main() {
           <div className="title">
             '도란도란'
           </div>
-            <button className="btn10"
+            <button className="btn15"
             onClick={() => {
               navigate("/calender");
             }}
           >
-            캘린더로 가기
+            캘린더로 이동하기
           </button>
         </div>
       </div>

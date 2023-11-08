@@ -75,7 +75,7 @@ function Popup({ onClose }) {
             <img src="./img/icon9.png" alt="사진" />
           </button>
           <button className="x-btn" onClick={handleIconCancel}>선택 X</button>
-          <button className="post-btn" onClick={handleIconPost}>
+          <button className="post-btn" onClick={() =>{navigate("/result");}}>
             아이콘 선택 완료
           </button>
         </div>
