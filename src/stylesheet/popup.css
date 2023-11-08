@@ -40,3 +40,18 @@ button {
   border: none;
   background-color: #edd6d6;
 }
+
+img {
+  width: 80px;
+}
+
+.x-btn {
+  border: 1px solid #fff;
+  padding: 25px;
+  width: 85px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 700;
+  background: #fff;
+  color: #f1b1b0;
+}

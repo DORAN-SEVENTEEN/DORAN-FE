@@ -5,6 +5,7 @@ import "../stylesheet/calender.css";
 import 'react-calendar/dist/Calendar.css';
 
 import dayjs from 'dayjs';
+import Header from "../components/header";
 
 
 
@@ -15,13 +16,18 @@ function Calender() {
 
   return (
     <div className="container">
+      <div style={{ display: "flex", alignItems: 'center'}}>
+      <Header/>
         <div className="next-all"
           onClick={() => {
             navigate("/all");
           }}
         >
-          <img src="./img/bookmark.png" alt="모아보기로이동"/>
+          <img src="./img/bookmark.png" alt="모아보기로이동" style={{marginLeft: "27px", marginTop: "-15px", width: "48px"
+          }}/>
         </div>
+      </div>
+     
       
         <div className="calender-page">
         {/* 달력 */}

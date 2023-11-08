@@ -5,6 +5,7 @@ import DiaryDisplay from "../components/DiaryDisplay";
 import { message } from "antd";
 import "../stylesheet/result.css";
 import "../App.css";
+import html2canvas from 'html2canvas';
 
 const dummyData = JSON.parse(
   `{ "title": "도란도란과 함께라면 걱정 없어", "thumbnail": "https://source.unsplash.com/1600x900/?coding", 
@@ -14,7 +15,26 @@ const dummyData = JSON.parse(
   "analysis": "이번 상황은 개발자로서 성장하는 과정에서 마주치는 문제였다. 알고리즘과 문제 해결 능력은 중요하지만, 개념적인 이해와 전체적인 시스템 구조 파악이 더 중요하다는 것을 알 수 있었다. '지식은 힘이다'라는 명언을 생각해보면, 기술적인 도움을 받는 것도 중요하지만 개념적인 이해와 학습은 더 큰 힘이 될 것이다.",
   "action_list": ["더 깊은 개념적 이해를 위해 관련 서적을 읽어보기", "다른 개발자들과 소통하여 문제 해결 방법 나누기", "개발자 커뮤니티에 참여하여 지식을 공유하기"] }`
 );
+const captureAndDownload = async () => {
+  const nodeToCapture = document.getElementById("capture");
+  console.log(nodeToCapture);
+  // HTML2Canvas를 사용하여 노드의 스크린샷을 생성합니다.
+  html2canvas(nodeToCapture, {
+    allowTaint: true,
+    useCORS: true,
+  }).then(function (canvas) {
+    // 스크린샷을 이미지로 변환합니다.
+    const image = canvas.toDataURL("image/png");
 
+    // 이미지를 다운로드할 수 있는 링크를 생성합니다.
+    const a = document.createElement("a");
+    a.href = image;
+    a.download = "gpt-diary-result.png";
+    a.click();
+  });
+};
+
+  
 function Result() {
   const [data, setData] = useState(dummyData);
   const [isLoading, setIsLoading] = useState(false);
@@ -54,6 +74,8 @@ function Result() {
       <div id="capture">
         <DiaryDisplay isLoading={isLoading} data={data} />
       </div>
+      <button className="result-btn" onClick={captureAndDownload}>결과 저장하기</button>
+
     </div>
   );
 }

@@ -11,12 +11,7 @@ import {
   } from "./CommonStyles";
   
   import {
-    LoadingOutlined,
-    CheckCircleTwoTone,
-    HeartTwoTone,
-    SmileTwoTone,
-    MessageTwoTone,
-    SoundTwoTone,
+    LoadingOutlined
   } from "@ant-design/icons";
   import { Image } from "antd";
   import styled from "styled-components";
@@ -27,6 +22,7 @@ import {
     margin-bottom: 15px;
   `;
   
+ 
   // eslint-disable-next-line react/prop-types
   const DiaryDisplay = ({ data, isLoading }) => {
     return (
@@ -42,12 +38,10 @@ import {
   
         <Divider />
         <CardContainer>
-          <CardTitle>
-            <CheckCircleTwoTone
-              twoToneColor="#FF9AA2"
-              style={{ marginRight: "6px" }}
-            />
-            한줄 요약
+        <CardTitle style={{ display: 'flex', alignItems: 'center' }}>
+           <img src="./img/icon4.png" alt="사진"
+           style={{height:'40px', width: '40px', marginRight: '20px'}}/>
+            내 감정 요약
           </CardTitle>
           <CardContent>{data.summary}</CardContent>
         </CardContainer>
@@ -56,8 +50,10 @@ import {
   
         <Divider />
         <CardContainer>
-          <CardTitle>
-            <HeartTwoTone twoToneColor="#FFB7B2" style={{ marginRight: "6px" }} />
+        <CardTitle style={{ display: 'flex', alignItems: 'center' }}>
+          <img src="./img/icon1.png" alt="사진"
+                     style={{height:'40px', width: '40px', marginRight: '20px'}}/>
+        
             감성일기장
           </CardTitle>
           <CardContent>{data.emotional_content}</CardContent>
@@ -65,8 +61,10 @@ import {
   
         <Divider />
         <CardContainer>
-          <CardTitle>
-            <SmileTwoTone twoToneColor="#FFDAC1" style={{ marginRight: "6px" }} />
+        <CardTitle style={{ display: 'flex', alignItems: 'center' }}>
+          <img src="./img/icon5.png" alt="사진"
+                     style={{height:'40px', width: '40px', marginRight: '20px'}}/>
+
             내가 느낀 감정
           </CardTitle>
           <CardContent>{data.emotional_result}</CardContent>
@@ -74,11 +72,11 @@ import {
   
         <Divider />
         <CardContainer>
-          <CardTitle>
-            <MessageTwoTone
-              twoToneColor={"#B5EAD7"}
-              style={{ marginRight: "6px" }}
-            />
+        <CardTitle style={{ display: 'flex', alignItems: 'center' }}>
+          <img src="./img/icon3.png" alt="사진"
+                     style={{height:'40px', width: '40px', marginRight: '20px'}}/>
+
+
             심리 분석
           </CardTitle>
           <CardContent>{data.analysis}</CardContent>
@@ -86,19 +84,19 @@ import {
   
         <Divider />
         <CardContainer>
-          <CardTitle>
-            <SoundTwoTone twoToneColor="#C7CEEA" style={{ marginRight: "6px" }} />
+        <CardTitle style={{ display: 'flex', alignItems: 'center' }}>
+          <img src="./img/icon2.png" alt="사진"
+                     style={{height:'40px', width: '40px', marginRight: '20px'}}/>
+
             GPT 조언
           </CardTitle>
           <CardContent>
             {data.action_list.map((action, index) => (
               <ActionListItem key={index}>{action}</ActionListItem>
             ))}
-            {/* <ActionListItem>{data.action_list[0]}</ActionListItem>
-            <ActionListItem>{data.action_list[1]}</ActionListItem>
-            <ActionListItem>{data.action_list[2]}</ActionListItem> */}
           </CardContent>
         </CardContainer>
+
       </DiaryContainer>
     );
   };

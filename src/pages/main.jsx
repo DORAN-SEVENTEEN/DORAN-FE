@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import "../stylesheet/main.css";
 import { useNavigate } from "react-router-dom";
 

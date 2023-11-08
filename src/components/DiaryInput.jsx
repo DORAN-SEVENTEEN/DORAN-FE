@@ -7,6 +7,7 @@ import styled from "styled-components";
 import { FileImageOutlined } from "@ant-design/icons";
 import html2canvas from "html2canvas";
 const { TextArea } = Input;
+import Header from "../components/header";
 
 const DiaryInput = ({ isLoading, onSubmit, messageApi }) => {
   const [userInput, setUserInput] = useState("");
@@ -57,11 +58,11 @@ const DiaryInput = ({ isLoading, onSubmit, messageApi }) => {
 
   return (
     <div>
-      <Title>고민상담사, 도란도란 </Title>
+      <Header/>
       <TextArea
         value={userInput}
         onChange={handleUserInput}
-        placeholder="오늘 일어난 일들을 간단히 적어주세요."
+        placeholder="나의 고민이나 오늘 일어난 일을 이야기해주세요. 도란도란 나누어봐요"
         style={{ height: "200px",  border: "1px solid #f1b1b0",
                 width: "80%"
     }}
@@ -72,12 +73,10 @@ const DiaryInput = ({ isLoading, onSubmit, messageApi }) => {
           GPT 회고록을 작성해줘!
         </Button>
         <Button
-          icon={<FileImageOutlined />}
-          loading={isLoading}
-          onClick={captureAndDownload}
-          style={{background: "#f1b1b0", border:"none"}}>
-          저장
+        style={{background: "#f1b1b0", border:"none"}}>
+          일기 저장
         </Button>
+       
       </ButtonContainer>
       <canvas id="canvas" style={{ display: "none" }}></canvas>
     </div>
@@ -87,7 +86,7 @@ const DiaryInput = ({ isLoading, onSubmit, messageApi }) => {
 export default DiaryInput;
 
 const ButtonContainer = styled.div`
-  margin: 20px;
+  margin: 30px;
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-end;
