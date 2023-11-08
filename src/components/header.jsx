@@ -7,7 +7,8 @@ const navigate = useNavigate();
     return(
         < >
 <div className="header-container">
-<img src="./img/back.png" alt="사진" onClick={()=>{
+<img   className="backImg"
+src="./img/back.png" alt="사진" onClick={()=>{
     navigate(-1);
 }}/>
 <p className="logo">'도란도란'</p>

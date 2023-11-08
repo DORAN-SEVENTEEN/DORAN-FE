@@ -8,6 +8,8 @@ import Calender from "./pages/calender";
 import Result from "./pages/result";
 import Popup from "./components/popup";
 import Diary from "./pages/diary";
+import DiaryDisplay from "./components/DiaryDisplay";
+import DiaryInput from "./components/DiaryInput";
 
 function App() {
 
@@ -22,6 +24,8 @@ function App() {
       <Route path="/all" element={<All />} /> {/*모아보기페이지*/}
       <Route path="/diary" element={<Diary/>} /> {/*버튼페이지*/}
       <Route path="/diary" element={<Popup/>} /> {/*기분선택팝업*/}
+      <Route path="/diary" element={<DiaryInput/>} /> {/*일기작성*/}
+      <Route path="/diary" element={<DiaryDisplay/>} /> {/*결과나오는부분*/}
       <Route path="/result" element={<Result />} /> {/*결과도출페이지*/}
       <Route path="*" element={<div>없는 페이지</div>} />
     </Routes>

@@ -2,11 +2,16 @@
   color: #f1b1b0;
   font-size: 45px;
   font-weight: 700;
-  margin-left: 20px;
+  margin-left: 45px;
+  font-family: "BMJUA", sans-serif;
 }
 
 .header-container {
   display: flex;
   align-items: center;
   margin-left: 40px;
+}
+.backImg {
+  width: 65px;
+  cursor: pointer;
 }
