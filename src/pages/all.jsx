@@ -17,14 +17,14 @@ function All() {
   
   return (
     <div className="container">
-      <button
-        onClick={() => {
-          navigate("/calender");
-        }}
-      >
-        달력
-      </button>
-      <div className="header">2023</div>
+        <div className="next-calender"
+          onClick={() => {
+            navigate("/calender");
+          }}
+        >
+          <img src="./img/group190.png" alt="캘린더이동"/>
+        </div>
+      <div className='all-page'>
        {/* 고민상담 모아보기 */}
         <div className="all-content">
           <div className="whitebox">
@@ -65,7 +65,7 @@ function All() {
             <div className="text">도란도란</div>
           </div>
         </div>
-
+      </div>
     </div>
   );
 }
