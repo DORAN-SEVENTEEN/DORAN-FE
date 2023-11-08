@@ -23,11 +23,6 @@
   margin-top: 30px;
 }
 
-.container{
-    width: 390px;
-    height: 841px;  
-}
-
 .all-content{
     background: #FFF;
     display: flex;
