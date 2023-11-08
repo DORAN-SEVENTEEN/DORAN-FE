@@ -29,7 +29,7 @@ export const CardContainer = styled.div`
 
 `;
 export const CardTitle = styled.div`
-  margin: 6px;
+  margin-left: 70px;
   color: #6b6b6b;
   font-size: 22px;
   margin-bottom: 20px;

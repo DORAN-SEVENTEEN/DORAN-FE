@@ -18,7 +18,8 @@ function Popup({ onClose }){
               <button><img src="./img/icon7.png" alt="사진"/></button>
               <button><img src="./img/icon8.png" alt="사진"/></button>
               <button><img src="./img/icon9.png" alt="사진"/></button>
-              
+              <button>선택안함</button>
+
 
             </div>
     
