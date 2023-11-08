@@ -21,7 +21,7 @@ function Popup({ onClose }){
               <button><img src="./img/icon7.png" alt="사진" onClick={()=>{navigate('/result')}}/></button>
               <button><img src="./img/icon8.png" alt="사진" onClick={()=>{navigate('/result')}}/></button>
               <button><img src="./img/icon9.png" alt="사진" onClick={()=>{navigate('/result')}}/></button>
-              <button>선택안함</button>
+              <button className="x-btn"onClick={()=>{navigate('/result')}} style={{border: '1px solid #fff', padding: '25px', width:'85px', borderRadius:'100px', fontSize:'14px', fontWeight:'700', background:'#fff', color: "#f1b1b0"}}>선택X</button>
 
 
             </div>

@@ -20,7 +20,7 @@ function All() {
     <div className="container">
       <Header/>
       
-      
+
       <div className='all-page'>
        {/* 고민상담 모아보기 */}
         <div className="all-content">
