@@ -2,7 +2,7 @@
   color: #f1b1b0;
   text-align: center;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  font-family: Abyssinica SIL;
+  font-family: BMJUA;
   font-size: 17px;
   font-style: normal;
   font-weight: 400;
@@ -74,12 +74,11 @@
 }
 
 .dateinfo {
-  margin-top: 8px;
   width: 221px;
   height: 23px;
   flex-shrink: 0;
   color: #808080;
-  font-family: B612;
+  font-family: BMJUA;
   font-size: 13px;
   font-style: normal;
   font-weight: 400;
@@ -88,10 +87,11 @@
 
 .text {
   color: #000;
-  font-family: Advent Pro;
+  font-family: BMJUA;
   font-size: 13px;
   font-style: normal;
   font-weight: 400;
   line-height: 150%; /* 19.5px */
   text-align: left;
+  margin-top: 15px;
 }
