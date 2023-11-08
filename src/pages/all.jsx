@@ -1,6 +1,7 @@
-import React, {useEffect, useState} from 'react';
+// import React, {useEffect, useState} from 'react';
 import { useNavigate } from "react-router-dom";
 import "../stylesheet/all.css";
+import Header from "../components/header";
 
 function All() {
 
@@ -17,13 +18,9 @@ function All() {
   
   return (
     <div className="container">
-        <div className="next-calender"
-          onClick={() => {
-            navigate("/calender");
-          }}
-        >
-          <img src="./img/group190.png" alt="캘린더이동"/>
-        </div>
+      <Header/>
+      
+
       <div className='all-page'>
        {/* 고민상담 모아보기 */}
         <div className="all-content">

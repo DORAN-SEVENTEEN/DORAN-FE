@@ -1,25 +1,26 @@
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "../stylesheet/diary.css";
 import Popup from "../components/popup";
+import Header from "../components/header";
+
 function Diary() {
-  let navigate = useNavigate();
   const [modal, setModal] = useState(false);
 
   return (
     <div className="container">
       <div className="btn-container">
-      <button className="btn1" onClick={()=>{
-        setModal(!modal);
-      }}>오늘의 기분 선택하기</button>
-       <button
-      className="btn1"
-        onClick={() => {
-          navigate("/result");
-        }}
-      >
-        GPT 고민상담 부탁해
-      </button>
+        <Header/>
+        <p>날짜</p>
+        <div>
+        <button className="btn1" onClick={() => { setModal(!modal) }}>
+  <div style={{ display: 'flex', alignItems: 'center' }}>
+    <span style={{ marginRight: '10px' }}>고민상담 부탁해</span>
+    <img src="./img/search.png" alt="사진" style={{ width: '50px', height: '50px' }} />
+  </div>
+</button>
+
+        </div>
+       
       </div>
       {modal && <Popup onClose={() => setModal(false)} />}
 
