@@ -1,5 +1,5 @@
 .btn1 {
-  background-color: #f1b1b0;
+  background-color: #f3c4c3;
   color: #fff;
   margin-top: 100px;
   border: none;
@@ -11,4 +11,18 @@
   font-size: 30px;
   font-weight: 700;
   cursor: pointer;
+}
+
+.mainlogoImg {
+  width: 200px;
+  margin-top: -95px;
+}
+
+.speech {
+  width: 300px;
+  margin: 100px;
+}
+
+.speech-container {
+  margin-top: 100px;
 }

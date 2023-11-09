@@ -10,10 +10,12 @@ const { TextArea } = Input;
 import Header from "../components/header";
 import axios from "axios";
 
-const DiaryInput = ({ isLoading, onSubmit, messageApi, id }) => {
+const DiaryInput = ({ isLoading, onSubmit, messageApi, id, contents }) => {
   const [userInput, setUserInput] = useState("");
 
-
+  console.log(id);
+  console.log(userInput);
+  
   // 사용자의 입력을 받아, 상위컴포넌트로 데이터를 전달
 
   // loading 상태 - 사용자가 제출버튼을 못 누르도록 처리
@@ -57,14 +59,26 @@ const DiaryInput = ({ isLoading, onSubmit, messageApi, id }) => {
 
   };
 
-//일기 저장
-const saveDiary = () => {
-  axios.put('http://localhost:3001/update/contents', {
-    id :id,
-    contents: userInput
-  })
+//일기 저장(해당 아이디에 일기 내용 보내기)
+const data = {
+  id: id,
+  contents: userInput
 }
 
+const saveDiary = () => {
+  axios.put('https://port-0-doran-be-7lk2bloprzyfi.sel5.cloudtype.app/update/contents', 
+    JSON.stringify(data),
+    {
+      headers: {
+        "Content-Type": 'application/json', 
+      },
+    }
+  )
+  .then((response) => {
+    console.log(response.data);
+    console.log("입력성공");
+  })
+}
   return (
     <div>
       <Header/>
@@ -79,13 +93,14 @@ const saveDiary = () => {
       <ButtonContainer>
         <Button loading={isLoading} onClick={handleClick}
          style={{background: "#f1b1b0", border:"none"}}>
-          GPT 회고록을 작성해줘!
+          GPT 일기 분석해줘!
         </Button>
         <Button
-        style={{background: "#f1b1b0", border:"none"}}
-        onClick={()=>{
-          saveDiary
-        }}>
+  style={{ background: "#f1b1b0", border: "none" }}
+  onClick={() => {
+    saveDiary(); 
+  }}
+>
           일기 저장
         </Button>
        
