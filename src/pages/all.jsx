@@ -1,80 +1,79 @@
-/* eslint-disable no-unused-vars */
-// import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../stylesheet/all.css";
 import Header from "../components/header";
+import Calendar from "react-calendar";
+import axios from "axios";
+
+/* axios({
+  method: 'get',
+  url: "https://port-0-doran-be-7lk2bloprzyfi.sel5.cloudtype.app/read/diaries",
+  data: {
+    "id": 1,
+    "date": "2023-11-08",
+    "iconUrl": "111",
+    "contents": "첫 번째",
+    "resultUrl": "111"
+  },
+}); */
 
 function All() {
-
   let navigate = useNavigate();
 
-/*   const [inputValue, setInputValue] = useState('');
-  const [data, setData] = useState([]);
+  const [diaries, setDiaries] = useState([]);
 
-  console.log('Data state:', data);
+  /* login으로 state넘기기 */
+  const handleDiaryClick = (diary) => {
+    navigate("/login", { state: diary });
+  };
 
-  const handleNewsletterClick = (index, item) => {
-    navigate('/결과도출', {state: {dataIndex: index, dataItem: item}});
-  }; */
-  
+  //전체 일기 조회
+  axios
+    .get(
+      "https://port-0-doran-be-7lk2bloprzyfi.sel5.cloudtype.app/read/diaries",
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
+    //응답 성공
+    .then((response) => {
+      setDiaries(response.data);
+    })
+    //응답 실패
+    .catch((error) => {
+      console.log(error);
+    });
+
   return (
     <div className="container">
-      <Header/>
-      
-
-      <div className='all-page'>
-       {/* 고민상담 모아보기 */}
-        <div className="all-content"
-        onClick={() => {
-          navigate("/login");
-        }}>
-          <div className="whitebox">
-            <div className="Emogi">emogi</div>
-            <div className="dateinfo">
-            Wednesday, November 6, 2023
+      <Header />
+      <div className="all-page">
+        {/* 모아보기 */}
+        {diaries.map((diary) => (
+          <div
+            key={diary.id}
+            className="all-content"
+            onClick={() => handleDiaryClick(diary)}
+          >
+            <div className="whitebox">
+              <div className="Emogi">
+                <img src={diary.iconUrl} alt="Emogi" />
+              </div>
+              {/*               <div className="delectimg">
+                <img src="./img/group55.png" alt="delectimg"
+                style={{ width: '20px', height: 'auto'}}/>
+              </div> */}
+              <div className="dateinfo">
+                <p>
+                  <span className="bold">{diary.date}</span>
+                </p>
+              </div>
+              <div className="text">{diary.contents}</div>
             </div>
-            <div className="text">도란도란</div>
           </div>
-        </div>
-
-        <div className="all-content"
-        onClick={() => {
-          navigate("/login");
-        }}>
-          <div className="whitebox">
-            <div className="Emogi"></div>
-            <div className="dateinfo">
-            Wednesday, November 6, 2023
-            </div>
-            <div className="text">도란도란</div>
-          </div>
-        </div>
-
-        <div className="all-content"
-        onClick={() => {
-          navigate("/login");
-        }}>
-          <div className="whitebox">
-            <div className="Emogi"></div>
-            <div className="dateinfo">
-            Wednesday, November 6, 2023
-            </div>
-            <div className="text">도란도란</div>
-          </div>
-        </div>
-
-        <div className="all-content"
-        onClick={() => {
-          navigate("/login");
-        }}>
-          <div className="whitebox">
-            <div className="Emogi"></div>
-            <div className="dateinfo">
-            Wednesday, November 6, 2023
-            </div>
-            <div className="text">도란도란</div>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );
