@@ -6,30 +6,46 @@ import { useState } from "react";
 import { useLocation } from 'react-router-dom';
 
 function Popup({ onClose }) {
-  let navigate = useNavigate();
-  const [selectedIcon, setSelectedIcon] = useState(null);
+  const navigate = useNavigate();
   const location = useLocation();
-  const date = location.state.date; //사용자가 선택한 날짜
-  const [id, setId] = useState();
+  const [selectedIcon, setSelectedIcon] = useState(null); //아이콘
+  const [contents, setContents] = useState(null); //내용
+const date = new Date(location.state.date);
+const formattedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+
+  const [id, setId] = useState(); //받아와지는 id 값
+  let data = {
+    iconUrl : selectedIcon,
+    date : formattedDate,
+    contents :contents,
+  }
   const handleIconClick = (iconName) => {
     setSelectedIcon(iconName); 
   };
 
 
   const handleIconPost = () => {
-    if (selectedIcon) {
-      const formData = new FormData();
-      formData.append("icon", selectedIcon); // 이미지 파일 자체를 FormData에 추가
-      formData.append("date", date);
-  
+
+
+    if (selectedIcon===null || selectedIcon) {
+    
+  console.log(formattedDate);
+  console.log(selectedIcon);
+  console.log(contents);
+
       axios
-        .post("https://port-0-doran-be-7lk2bloprzyfi.sel5.cloudtype.app/create/icon", formData)
+        .post("https://port-0-doran-be-7lk2bloprzyfi.sel5.cloudtype.app/create/icon", 
+        JSON.stringify(data),
+         {
+          headers: {
+            "Content-Type": 'application/json', 
+          },
+        })
         .then((response) => {
           console.log(response.data);
-          setId(response.data.id);
-          
-          // 선택한 아이콘의 id를 result 페이지로 보내기(서버 연결 시 받아와짐)
-          navigate("/result", { state: { id: id } });
+          // 선택한 아이콘의 id와 contents
+          navigate("/result",   
+          {state: { id: response.data, contents : contents }});
         })
         .catch((error) => {
           console.log(error);
@@ -37,7 +53,7 @@ function Popup({ onClose }) {
     }
   };
   
-
+//선택 X 버튼 클릭 시 아이콘에 null 값 할당
   const handleIconCancel = () => {
     setSelectedIcon(null);
   };
@@ -50,37 +66,38 @@ function Popup({ onClose }) {
         </button>
         <div className="modal-div">
           <button onClick={() => handleIconClick("./img/icon1.png")}>
-            <img src="./img/icon1.png" alt="사진" onClick={()=>{navigate("/result")}}/>
+            <img src="./img/icon1.png" alt="사진"/>
           </button>
           <button onClick={() => handleIconClick("./img/icon2.png")}>
             <img src="./img/icon2.png" alt="사진" />
           </button>
-          <button onClick={() => handleIconClick("icon3")}>
+          <button onClick={() => handleIconClick("./img/icon3.png")}>
             <img src="./img/icon3.png" alt="사진" />
           </button>
-          <button onClick={() => handleIconClick("icon4")}>
+          <button onClick={() => handleIconClick("./img/icon4.png")}>
             <img src="./img/icon4.png" alt="사진" />
           </button>
-          <button onClick={() => handleIconClick("icon5")}>
+          <button onClick={() => handleIconClick("./img/icon5.png")}>
             <img src="./img/icon5.png" alt="사진" />
           </button>
-          <button onClick={() => handleIconClick("icon6")}>
+          <button onClick={() => handleIconClick("./img/icon6.png")}>
             <img src="./img/icon6.png" alt="사진" />
           </button>
-          <button onClick={() => handleIconClick("icon7")}>
+          <button onClick={() => handleIconClick("./img/icon7.png")}>
             <img src="./img/icon7.png" alt="사진" />
           </button>
-          <button onClick={() => handleIconClick("icon8")}>
+          <button onClick={() => handleIconClick("./img/icon8.png")}>
             <img src="./img/icon8.png" alt="사진" />
           </button>
-          <button onClick={() => handleIconClick("icon9")}>
+          <button onClick={() => handleIconClick("./img/icon9.png")}>
             <img src="./img/icon9.png" alt="사진" />
           </button>
-          <button className="x-btn" onClick={handleIconCancel}>선택 X</button>
-          <button className="post-btn" onClick={handleIconPost}>
-            아이콘 선택 완료
-          </button>
+          {/* <button className="x-btn" onClick={handleIconCancel}>선택 X</button> */}
+          
         </div>
+        <button className="post-btn" onClick={handleIconPost}>
+            기분 선택 완료
+          </button>
       </div>
     </div>
   );

@@ -5,10 +5,9 @@ import DiaryDisplay from "../components/DiaryDisplay";
 import { message } from "antd";
 import "../stylesheet/result.css";
 import "../App.css";
-import html2canvas from 'html2canvas';
-import { useLocation } from 'react-router-dom';
-import axios  from "axios";
-
+import html2canvas from "html2canvas";
+import { useLocation } from "react-router-dom";
+import axios from "axios";
 
 const dummyData = JSON.parse(
   `{ "title": "도란도란과 함께라면 걱정 없어", "thumbnail": "https://source.unsplash.com/1600x900/?coding", 
@@ -19,19 +18,25 @@ const dummyData = JSON.parse(
   "action_list": ["더 깊은 개념적 이해를 위해 관련 서적을 읽어보기", "다른 개발자들과 소통하여 문제 해결 방법 나누기", "개발자 커뮤니티에 참여하여 지식을 공유하기"] }`
 );
 
-
 function Result() {
   const [data, setData] = useState(dummyData);
   const [isLoading, setIsLoading] = useState(false);
   const [messageApi, contextHolder] = message.useMessage();
   const location = useLocation();
-  const [result, setResult] = useState(); //결과 사진 url 저장
+  const [result, setResult] = useState(""); //결과 사진 url 저장
   const id = location.state.id; //아이콘 id 값
+  const contents = location.state.contents; //아이콘 일기 들어갈 값
+  console.log(id);
+  console.log(contents);
+  // const datas = {
+  //   id: id,
+  //   result: result,
+  // };
 
-  //결과 사진 저장
+  // 결과 사진 저장
   const captureAndDownload = async () => {
     const nodeToCapture = document.getElementById("capture");
-    console.log(nodeToCapture);
+
     // HTML2Canvas를 사용하여 노드의 스크린샷을 생성합니다.
     html2canvas(nodeToCapture, {
       allowTaint: true,
@@ -39,25 +44,40 @@ function Result() {
     }).then(function (canvas) {
       // 스크린샷을 이미지로 변환합니다.
       const image = canvas.toDataURL("image/png");
-  
+
       // 이미지를 다운로드할 수 있는 링크를 생성합니다.
       const a = document.createElement("a");
       a.href = image;
       a.download = "gpt-diary-result.png";
       a.click();
-  
-     setResult(a);
-  
-      //결과 저장
-      axios.put('https://port-0-doran-be-7lk2bloprzyfi.sel5.cloudtype.app/update/result', {
-        id :id,
-        contents: result
-      })
-  
-  
+
+      saveResult(image);
+      console.log(image);
     });
   };
-    
+
+  const saveResult = (image) => {
+    // 결과 저장
+    const params = {
+      id: id,
+      result: image,
+    };
+    axios
+      .put(
+        "https://port-0-doran-be-7lk2bloprzyfi.sel5.cloudtype.app//update/result",
+        JSON.stringify(params),
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then(() => {
+        console.log(params);
+        console.log(JSON.stringify(params));
+        console.log("결과 성공");
+      });
+  };
   const handleClickAPICall = async (userInput) => {
     try {
       setIsLoading(true);
@@ -83,22 +103,23 @@ function Result() {
   return (
     <div className="container">
       {contextHolder}
-  
+
       <DiaryInput
         messageApi={messageApi}
         isLoading={isLoading}
         onSubmit={handleSubmit}
-      //  id = {id}
+        id={id}
+        contents={contents}
       />
+
       <div id="capture">
         <DiaryDisplay isLoading={isLoading} data={data} />
       </div>
-      <button className="result-btn" onClick={captureAndDownload}>결과 저장하기</button>
-
+      <button className="result-btn" onClick={captureAndDownload}>
+        결과 저장하기
+      </button>
     </div>
   );
 }
 
 export default Result;
-
-

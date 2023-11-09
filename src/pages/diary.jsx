@@ -7,13 +7,14 @@ import { useLocation } from 'react-router-dom';
 function Diary() {
   const [modal, setModal] = useState(false);
   const location = useLocation();
- const date = location.state.date; //사용자가 선택한 날짜
+  const date = new Date(location.state.date);//사용자가 선택한 날짜
+ const formattedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
 
   return (
     <div className="container">
       <div className="btn-container">
         <Header/>
-        <p>{date}</p>
+        <p>{formattedDate}</p>
         <div>
         <button className="btn1" onClick={() => { setModal(!modal);  }}>
   <div style={{ display: 'flex', alignItems: 'center' }}>

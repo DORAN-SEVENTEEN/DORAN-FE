@@ -25,6 +25,7 @@ import {
   
 
   // eslint-disable-next-line react/prop-types
+  
   const DiaryDisplay = ({ data, isLoading }) => {
     return (
       <DiaryContainer>
