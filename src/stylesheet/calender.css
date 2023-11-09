@@ -19,6 +19,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-bottom: 40px;
 }
 
 .calendar-container {
@@ -35,8 +36,8 @@
 }
 
 .btn10 {
-  width: 258px;
-  height: 40px;
+  width: 370px;
+  height: 50px;
   flex-shrink: 0;
 
   background-color: #f1b1b0;
@@ -51,9 +52,9 @@
 
   text-align: center;
   font-family: BMJUA;
-  font-size: 15px;
+  font-size: 25px;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 400;
   line-height: normal;
   cursor: pointer;
 }

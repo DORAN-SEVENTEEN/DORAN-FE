@@ -4,14 +4,13 @@ import Calendar from 'react-calendar';
 import "../stylesheet/calender.css";
 import 'react-calendar/dist/Calendar.css';
 import axios from "axios";
-
 import dayjs from 'dayjs';
 import Header from "../components/header";
 
 
 /* axios({
   method: 'get',
-  url: "http://3.39.75.2:8080//read/diaries-day",
+  url: "https://port-0-doran-be-7lk2bloprzyfi.sel5.cloudtype.app/read/diaries-day",
   data: {
     id: 1,
     date: "2023-11-08",
@@ -26,33 +25,33 @@ function Calender() {
   let navigate = useNavigate();
 
   const [date, setDate] = useState(new Date());
-  const [selectedDateString, setSelectedDateString] = useState(date.toDateString()); // 선택된 날짜 문자열 상태
+  const [selectedDateString, setSelectedDateString] = useState(date.toDateString());
 
-  // 달력에서 날짜가 변경될 때 호출되는 함수
+  const [diaries, setDiaries] = useState([]);
+
+    /* login으로 state넘기기 */
+    const handleDiaryClick = (diary) => {
+      navigate('/login', { state: diary });
+    };
+
   const handleDateChange = (newDate) => {
-    setDate(newDate); // 선택된 날짜를 업데이트
-    setSelectedDateString(newDate.toDateString()); // 선택된 날짜 문자열을 업데이트
+    setDate(newDate);
+    setSelectedDateString(dayjs(newDate).format('YYYY-MM-DD'));
+
+
+    /* 선택한 날의 일기 조회 */
+    axios.get(`https://port-0-doran-be-7lk2bloprzyfi.sel5.cloudtype.app/read/diaries-day?date=${selectedDateString}`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+    .then((response) => {
+      setDiaries(response.data);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
   }
-console.log(selectedDateString);
-  const [selectedicon, setselectedicon] = useState(null);
-  const [diarycontents, setdiarycontents] = useState(null);
-  
-  
-  //선택한 날의 일기 조회
-  axios.get("http://3.39.75.2:8080//read/diaries-day", {
-    params: {
-      ID: date.toDateString()
-    }
-  })
-  //응답 성공
-  .then((response) =>{
-    setselectedicon(response.data.iconUrl);
-    setdiarycontents(response.data.contents);
-  })
-  //응답 실패
-  .catch((error) => {
-    console.log(error);
-  })
 
   return (
     <div className="container">
@@ -92,24 +91,23 @@ console.log(selectedDateString);
           </button>
 
           {/* 날짜 선택하면 일기조회 */}
-          <div className="all-content"
-          onClick={() => {
-            navigate("/login");
-          }}>
+        {diaries.map((diary) => (
+          <div key={diary.id} className="all-content"
+          onClick={() => handleDiaryClick(diary)}>
           <div className="whitebox">
             <div className="Emogi">
-            <img src={selectedicon ? selectedicon.iconUrl : ""} alt="Emogi" />
+            <img src={diary.iconUrl} alt="Emogi" />
             </div>
             <div className="dateinfo">
               <p>
-            <span className='bold'></span>{' '}
-            {date.toDateString()}
+            <span className='bold'>{diary.date}</span>{' '}
               </p>
             </div>
             <div className="text">
-              {diarycontents ? diarycontents.contents : ""}</div>
+              {diary.contents}</div>
           </div>
-        </div>
+          </div>
+         ))}
       </div>
     </div>
   );
