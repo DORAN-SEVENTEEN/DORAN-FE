@@ -23,7 +23,12 @@ function Diary() {
 </button>
 
         </div>
-       
+        <div className="speech-container">
+        <img src="./img/speechbubble.png" className="speech"/>
+<br/>
+       <img src="./img/mainlogo.png" className="mainlogoImg"/>
+        </div>
+
       </div>
       {modal && <Popup onClose={() => setModal(false)} />}
 

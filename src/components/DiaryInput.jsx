@@ -59,7 +59,7 @@ const DiaryInput = ({ isLoading, onSubmit, messageApi, id }) => {
 
 //일기 저장
 const saveDiary = () => {
-  axios.put('http://localhost:3001/update/contents', {
+  axios.put('https://port-0-doran-be-7lk2bloprzyfi.sel5.cloudtype.app/update/contents', {
     id :id,
     contents: userInput
   })
@@ -79,7 +79,7 @@ const saveDiary = () => {
       <ButtonContainer>
         <Button loading={isLoading} onClick={handleClick}
          style={{background: "#f1b1b0", border:"none"}}>
-          GPT 회고록을 작성해줘!
+          GPT 일기 분석해줘!
         </Button>
         <Button
         style={{background: "#f1b1b0", border:"none"}}

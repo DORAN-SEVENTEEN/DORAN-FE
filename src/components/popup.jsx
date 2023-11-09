@@ -10,31 +10,33 @@ function Popup({ onClose }) {
   const [selectedIcon, setSelectedIcon] = useState(null);
   const location = useLocation();
   const date = location.state.date; //사용자가 선택한 날짜
-  //const [id, setId] = useState();
+  const [id, setId] = useState();
   const handleIconClick = (iconName) => {
     setSelectedIcon(iconName); 
   };
 
+
   const handleIconPost = () => {
     if (selectedIcon) {
-  //아이콘 클릭 시 아이콘 url과 date 보내기
+      const formData = new FormData();
+      formData.append("icon", selectedIcon); // 이미지 파일 자체를 FormData에 추가
+      formData.append("date", date);
+  
       axios
-        .post("http://3.39.75.222:8080/create/icon", {
-          icon: selectedIcon,
-          date: date 
-        })
+        .post("https://port-0-doran-be-7lk2bloprzyfi.sel5.cloudtype.app/create/icon", formData)
         .then((response) => {
           console.log(response.data);
-         // setId(response.data.id); //받아와진 id 값 저장하기
-          navigate("/result");
+          setId(response.data.id);
+          
           // 선택한 아이콘의 id를 result 페이지로 보내기(서버 연결 시 받아와짐)
-          // navigate("/result",  {state: { id: id }} );
+          navigate("/result", { state: { id: id } });
         })
         .catch((error) => {
           console.log(error);
         });
     }
   };
+  
 
   const handleIconCancel = () => {
     setSelectedIcon(null);
@@ -75,7 +77,7 @@ function Popup({ onClose }) {
             <img src="./img/icon9.png" alt="사진" />
           </button>
           <button className="x-btn" onClick={handleIconCancel}>선택 X</button>
-          <button className="post-btn" onClick={() =>{navigate("/result");}}>
+          <button className="post-btn" onClick={handleIconPost}>
             아이콘 선택 완료
           </button>
         </div>

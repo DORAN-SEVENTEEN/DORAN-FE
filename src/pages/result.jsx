@@ -6,7 +6,7 @@ import { message } from "antd";
 import "../stylesheet/result.css";
 import "../App.css";
 import html2canvas from 'html2canvas';
-//import { useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import axios  from "axios";
 
 
@@ -24,9 +24,9 @@ function Result() {
   const [data, setData] = useState(dummyData);
   const [isLoading, setIsLoading] = useState(false);
   const [messageApi, contextHolder] = message.useMessage();
-  //const location = useLocation();
+  const location = useLocation();
   const [result, setResult] = useState(); //결과 사진 url 저장
-  //const id = location.state.id; //아이콘 id 값
+  const id = location.state.id; //아이콘 id 값
 
   //결과 사진 저장
   const captureAndDownload = async () => {
@@ -46,15 +46,15 @@ function Result() {
       a.download = "gpt-diary-result.png";
       a.click();
   
-     {/* setResult(a);
+     setResult(a);
   
       //결과 저장
-      axios.put('http://localhost:3001/update/result', {
+      axios.put('https://port-0-doran-be-7lk2bloprzyfi.sel5.cloudtype.app/update/result', {
         id :id,
         contents: result
       })
   
-    */}
+  
     });
   };
     

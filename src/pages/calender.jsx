@@ -39,7 +39,7 @@ console.log(selectedDateString);
   
   
   //선택한 날의 일기 조회
-  axios.get("http://3.39.75.2:8080//read/diaries-day", {
+  axios.get("https://port-0-doran-be-7lk2bloprzyfi.sel5.cloudtype.app/read/diaries-day", {
     params: {
       ID: date.toDateString()
     }
