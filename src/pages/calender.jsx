@@ -92,7 +92,10 @@ console.log(selectedDateString);
           </button>
 
           {/* 날짜 선택하면 일기조회 */}
-          <div className="all-content">
+          <div className="all-content"
+          onClick={() => {
+            navigate("/login");
+          }}>
           <div className="whitebox">
             <div className="Emogi">
             <img src={selectedicon ? selectedicon.iconUrl : ""} alt="Emogi" />

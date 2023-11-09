@@ -47,7 +47,10 @@ function All() {
       
       <div className='all-page'>
        {/* 고민상담 모아보기 */}
-        <div className="all-content">
+        <div className="all-content"
+        onClick={() => {
+          navigate("/login");
+        }}>
           <div className="whitebox">
             <div className="Emogi">
             <img src={selectedicon && selectedicon.id === 1 ? selectedicon.iconUrl : ""} alt="Emogi" />
@@ -65,7 +68,10 @@ function All() {
           </div>
         </div>
 
-        <div className="all-content">
+        <div className="all-content"
+        onClick={() => {
+          navigate("/login");
+        }}>
           <div className="whitebox">
             <div className="Emogi">
             <img src={selectedicon && selectedicon.id === 2 ? selectedicon.iconUrl : ""} alt="Emogi" />
@@ -83,7 +89,10 @@ function All() {
           </div>
         </div>
 
-        <div className="all-content">
+        <div className="all-content"
+        onClick={() => {
+          navigate("/login");
+        }}>
           <div className="whitebox">
             <div className="Emogi">
             <img src={selectedicon && selectedicon.id === 3 ? selectedicon.iconUrl : ""} alt="Emogi" />
@@ -101,7 +110,10 @@ function All() {
           </div>
         </div>
 
-        <div className="all-content">
+        <div className="all-content"
+        onClick={() => {
+          navigate("/login");
+        }}>
           <div className="whitebox">
             <div className="Emogi">
             <img src={selectedicon && selectedicon.id === 4 ? selectedicon.iconUrl : ""} alt="Emogi" />
