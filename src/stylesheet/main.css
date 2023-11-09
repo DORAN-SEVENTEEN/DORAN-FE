@@ -8,51 +8,32 @@
 }
 
 .sub-title {
-  width: 239.068px;
-  height: 30.31px;
-  flex-shrink: 0;
-
   color: #fff;
 
   text-align: center;
   font-family: BMJUA;
-  font-size: 28px;
+  font-size: 40px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 200;
   line-height: normal;
+  margin-top: 20px;
 }
 
 .title {
   color: #fff;
   text-align: center;
   font-family: BMJUA;
-  font-size: 45px;
+  font-size: 70px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
 }
 
-.btn10 {
-  background-color: #f1b1b0;
-  color: #fff;
-  margin: 20px;
-  border: none;
-  padding: 7px 35px;
-  border-radius: 10px;
-  cursor: pointer;
-
-  color: #fff;
-
-  text-align: center;
-  font-family: BMJUA;
-  font-size: 15px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  cursor: pointer;
-}
 
 .btn15{
+    width: 258px;
+    height: 63px;
+    flex-shrink: 0;
     background-color: #fff;
     color: #f1b1b0;
     margin: 20px;
@@ -61,12 +42,13 @@
     border-radius: 10px;
     cursor: pointer;
   
-    color: #f1b1b0;
-  
+    color: #F1B1B0;
+
     text-align: center;
     font-family: BMJUA;
-    font-size: 15px;
+    font-size: 25px;
     font-style: normal;
-    font-weight: 600;
+    font-weight: 400;
     line-height: normal;
+    margin-top: 50px;
   }

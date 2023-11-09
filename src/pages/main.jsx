@@ -7,12 +7,14 @@ function Main() {
   return (
     <div className="container">
       <div className="main-page">
-        <div className="img1">
-        <img src="./img/Group189.png" alt="말풍선"/>
+        <div className="mainimg">
+        <img src="./img/Group189.png" alt="mainimg"
+        style={{ width: '300px', height: 'auto',}}/>
         </div>
         <div className="main-box">
-          <div className="logo">
-            <img src="" alt="logo"/>
+          <div className="mainlogo">
+            <img src="./img/image315.png" alt="mainlogo"
+            style={{ width: '250px', height: 'auto', marginTop:'20px'}}/>
           </div>
           <div className="sub-title">
             GPT와의 고민상담</div>

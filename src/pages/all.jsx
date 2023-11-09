@@ -24,7 +24,10 @@ function All() {
 
       <div className='all-page'>
        {/* 고민상담 모아보기 */}
-        <div className="all-content">
+        <div className="all-content"
+        onClick={() => {
+          navigate("/login");
+        }}>
           <div className="whitebox">
             <div className="Emogi">emogi</div>
             <div className="dateinfo">
@@ -34,7 +37,10 @@ function All() {
           </div>
         </div>
 
-        <div className="all-content">
+        <div className="all-content"
+        onClick={() => {
+          navigate("/login");
+        }}>
           <div className="whitebox">
             <div className="Emogi"></div>
             <div className="dateinfo">
@@ -44,7 +50,10 @@ function All() {
           </div>
         </div>
 
-        <div className="all-content">
+        <div className="all-content"
+        onClick={() => {
+          navigate("/login");
+        }}>
           <div className="whitebox">
             <div className="Emogi"></div>
             <div className="dateinfo">
@@ -54,7 +63,10 @@ function All() {
           </div>
         </div>
 
-        <div className="all-content">
+        <div className="all-content"
+        onClick={() => {
+          navigate("/login");
+        }}>
           <div className="whitebox">
             <div className="Emogi"></div>
             <div className="dateinfo">
