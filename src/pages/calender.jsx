@@ -6,18 +6,7 @@ import "react-calendar/dist/Calendar.css";
 import axios from "axios";
 import dayjs from "dayjs";
 import Header from "../components/header";
-
-/* axios({
-  method: 'get',
-  url: "https://port-0-doran-be-7lk2bloprzyfi.sel5.cloudtype.app/read/diaries-day",
-  data: {
-    id: 1,
-    date: "2023-11-08",
-    iconUrl: "111",
-    contents: "첫 번째",
-    resultUrl: "111"
-  }
-}); */
+import Footer from "../components/footer";
 
 function Calender() {
   let navigate = useNavigate();
@@ -123,6 +112,7 @@ function Calender() {
           ))}
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

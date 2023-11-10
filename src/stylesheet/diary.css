@@ -1,5 +1,5 @@
 .btn1 {
-  background-color: #f3c4c3;
+  background-color: #ffc5bf;
   color: #fff;
   margin-top: 100px;
   border: none;
@@ -25,4 +25,10 @@
 
 .speech-container {
   margin-top: 100px;
+}
+
+.btn1:hover {
+  background: #f1b1b0;
+
+  color: #fff;
 }
