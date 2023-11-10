@@ -71,12 +71,13 @@ function Login() {
           </div>
           <div className="box3" ref={box3Ref}>
             <p className="box3-text">
-              <img
+              {/* <img
                 src={"data:image/gif;base64," + diary.resultUrl}
                 alt="Result"
                 onError={(e) => console.error("Image load error:", e)}
                 style={{ width: "300px" }}
-              />
+              /> */}
+              {diary.resultUrl}
             </p>
           </div>
         </div>

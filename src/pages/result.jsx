@@ -57,25 +57,22 @@ function Result() {
   };
 
   const saveResult = (image) => {
-    // 결과 저장
-    const params = {
-      id: id,
-      resultUrl: image,
-    };
+    // Create FormData object
+    const formData = new FormData();
+    formData.append("id", id);
+    formData.append("resultUrl", image);
+
+    // Send POST request with FormData
     axios
-      .put(
-        "https://port-0-doran-be-7lk2bloprzyfi.sel5.cloudtype.app/update/result",
-        JSON.stringify(params),
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
+      .post(
+        `https://port-0-doran-be-7lk2bloprzyfi.sel5.cloudtype.app/update/result/${id}`,
+        formData
       )
       .then(() => {
-        console.log(params.resultUrl);
-        console.log(JSON.stringify(params));
         console.log("결과 성공");
+      })
+      .catch((error) => {
+        console.error("Error saving result:", error);
       });
   };
   const handleClickAPICall = async (userInput) => {
