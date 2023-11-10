@@ -101,25 +101,27 @@ function Calender() {
         </button>
 
         {/* 날짜 선택하면 일기조회 */}
-        {diaries.map((diary) => (
-          <div
-            key={diary.id}
-            className="all-content"
-            onClick={() => handleDiaryClick(diary)}
-          >
-            <div className="whitebox">
-              <div className="Emogi">
-                <img src={diary.iconUrl} alt="Emogi" />
+        <div className="all-page2">
+          {diaries.map((diary) => (
+            <div
+              key={diary.id}
+              className="all-content"
+              onClick={() => handleDiaryClick(diary)}
+            >
+              <div className="whitebox">
+                <div className="Emogi">
+                  <img src={diary.iconUrl} alt="Emogi" />
+                </div>
+                <div className="dateinfo">
+                  <p>
+                    <span className="bold">{diary.date}</span>{" "}
+                  </p>
+                </div>
+                <div className="text">{diary.contents}</div>
               </div>
-              <div className="dateinfo">
-                <p>
-                  <span className="bold">{diary.date}</span>{" "}
-                </p>
-              </div>
-              <div className="text">{diary.contents}</div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );

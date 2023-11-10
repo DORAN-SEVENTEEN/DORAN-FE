@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import "../stylesheet/main.css";
 import { useNavigate } from "react-router-dom";
+import styled, { keyframes } from 'styled-components';
 
 function Main() {
   let navigate = useNavigate();
@@ -8,8 +9,8 @@ function Main() {
     <div className="container">
       <div className="main-page">
         <div className="mainimg">
-        <img src="./img/Group189.png" alt="mainimg"
-        style={{ width: '300px', height: 'auto',}}/>
+          <img src="./img/Group189.png" alt="mainimg"
+          style={{ width: '300px', height: 'auto'}}/>
         </div>
         <div className="main-box">
           <div className="mainlogo">
