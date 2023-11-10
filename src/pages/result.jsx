@@ -60,11 +60,11 @@ function Result() {
     // 결과 저장
     const params = {
       id: id,
-      result: image,
+      resultUrl: image,
     };
     axios
       .put(
-        "https://port-0-doran-be-7lk2bloprzyfi.sel5.cloudtype.app//update/result",
+        "https://port-0-doran-be-7lk2bloprzyfi.sel5.cloudtype.app/update/result",
         JSON.stringify(params),
         {
           headers: {
@@ -73,7 +73,7 @@ function Result() {
         }
       )
       .then(() => {
-        console.log(params);
+        console.log(params.resultUrl);
         console.log(JSON.stringify(params));
         console.log("결과 성공");
       });
