@@ -7,15 +7,16 @@
 }
 
 @font-face {
-  font-family: 'Bareun_hipi';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/naverfont_01@1.0/Bareun_hipi.woff') format('woff');
+  font-family: "Bareun_hipi";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/naverfont_01@1.0/Bareun_hipi.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 body {
   text-align: center;
-  background-color: rgb(198, 198, 197);
+  background-color: rgb(197, 198, 197);
   font-family: "Jua", sans-serif;
 }
 
