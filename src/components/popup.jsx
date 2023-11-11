@@ -3,59 +3,55 @@ import "../stylesheet/popup.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
-import { useLocation } from 'react-router-dom';
+import { useLocation } from "react-router-dom";
 
 function Popup({ onClose }) {
   const navigate = useNavigate();
   const location = useLocation();
   const [selectedIcon, setSelectedIcon] = useState(null); //아이콘
   const [contents, setContents] = useState(null); //내용
-const date = new Date(location.state.date);
-const formattedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+  const date = new Date(location.state.date);
+  const formattedDate = `${date.getFullYear()}-${String(
+    date.getMonth() + 1
+  ).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
 
   const [id, setId] = useState(); //받아와지는 id 값
   let data = {
-    iconUrl : selectedIcon,
-    date : formattedDate,
-    contents :contents,
-  }
+    iconUrl: selectedIcon,
+    date: formattedDate,
+    contents: contents,
+  };
   const handleIconClick = (iconName) => {
-    setSelectedIcon(iconName); 
+    setSelectedIcon(iconName);
   };
 
-
   const handleIconPost = () => {
-
-
-    if (selectedIcon===null || selectedIcon) {
-    
-  console.log(formattedDate);
-  console.log(selectedIcon);
-  console.log(contents);
+    if (selectedIcon === null || selectedIcon) {
+      console.log(formattedDate);
+      console.log(selectedIcon);
+      console.log(contents);
 
       axios
-        .post("https://port-0-doran-be-7lk2bloprzyfi.sel5.cloudtype.app/create/icon", 
-        JSON.stringify(data),
-         {
-          headers: {
-            "Content-Type": 'application/json', 
-          },
-        })
+        .post(
+          "https://port-0-doran-be-7lk2bloprzyfi.sel5.cloudtype.app/create/icon",
+          JSON.stringify(data),
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        )
         .then((response) => {
           console.log(response.data);
           // 선택한 아이콘의 id와 contents
-          navigate("/result",   
-          {state: { id: response.data, contents : contents }});
+          navigate("/result", {
+            state: { id: response.data, contents: contents },
+          });
         })
         .catch((error) => {
           console.log(error);
         });
     }
-  };
-  
-//선택 X 버튼 클릭 시 아이콘에 null 값 할당
-  const handleIconCancel = () => {
-    setSelectedIcon(null);
   };
 
   return (
@@ -66,7 +62,7 @@ const formattedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padSt
         </button>
         <div className="modal-div">
           <button onClick={() => handleIconClick("./img/icon1.png")}>
-            <img src="./img/icon1.png" alt="사진"/>
+            <img src="./img/icon1.png" alt="사진" />
           </button>
           <button onClick={() => handleIconClick("./img/icon2.png")}>
             <img src="./img/icon2.png" alt="사진" />
@@ -93,11 +89,10 @@ const formattedDate = `${date.getFullYear()}-${String(date.getMonth() + 1).padSt
             <img src="./img/icon9.png" alt="사진" />
           </button>
           {/* <button className="x-btn" onClick={handleIconCancel}>선택 X</button> */}
-          
         </div>
         <button className="post-btn" onClick={handleIconPost}>
-            기분 선택 완료
-          </button>
+          기분 선택 완료
+        </button>
       </div>
     </div>
   );

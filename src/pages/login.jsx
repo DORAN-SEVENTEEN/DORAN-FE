@@ -1,5 +1,5 @@
 import { useNavigate, useLocation } from "react-router-dom";
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from "react";
 import Header from "../components/header";
 import "../stylesheet/login.css";
 import axios from "axios";
@@ -8,15 +8,14 @@ function Login() {
   let navigate = useNavigate();
   const location = useLocation();
   const diaryData = location.state;
-  
+
   const [diary, setDiary] = useState({
     id: "",
     date: "",
     iconUrl: "",
     contents: "",
-    resultUrl: ""
+    resultUrl: "",
   });
-
 
   const box2Ref = useRef();
   const box3Ref = useRef();
@@ -26,16 +25,17 @@ function Login() {
       const id = location.state.id;
 
       axios
-        .get(`https://port-0-doran-be-7lk2bloprzyfi.sel5.cloudtype.app/read/diary/${id}`)
+        .get(
+          `https://port-0-doran-be-7lk2bloprzyfi.sel5.cloudtype.app/read/diary/${id}`
+        )
         .then((response) => {
           setDiary(response.data);
         })
         .catch((error) => {
-          console.error('Error fetching diary:', error);
+          console.error("Error fetching diary:", error);
         });
     }
   }, [location.state]);
-
 
   /* box크기조정 */
   useEffect(() => {
@@ -52,25 +52,26 @@ function Login() {
 
   return (
     <div className="container">
-      <Header/>
+      <Header />
       <div className="selectedresult">
         <div className="box1">
           <div className="dateinfo">
             <p>
-              <span className='bold'>{diary.date}</span>{' '}
+              <span className="bold">{diary.date}</span>{" "}
             </p>
           </div>
           <div className="Emogi">
             <img src={diary.iconUrl} alt="Emogi" />
           </div>
           <div className="box2" ref={box2Ref}>
-            <p className="box2-text">
-              {diary.contents}
-            </p>
+            <p className="box2-text">{diary.contents}</p>
           </div>
           <div className="box3" ref={box3Ref}>
             <p className="box3-text">
-              {diary.resultUrl}
+              <img
+                src={diary.resultUrl}
+                style={{ width: "300px", margin: "10px" }}
+              />
             </p>
           </div>
         </div>

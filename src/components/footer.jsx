@@ -59,17 +59,6 @@ function Footer() {
           <p className="footer-text2">캘린더</p>
         </button>
       </div>
-      <div className="footer-mypage">
-        <button
-          style={{ ...buttonStyle, ...(isDiaryHovered && hoveredStyle) }}
-          onClick={() => navigate("/diary")}
-          onMouseEnter={() => setIsDiaryHovered(true)}
-          onMouseLeave={() => setIsDiaryHovered(false)}
-        >
-          <BsEnvelopePaperHeartFill className="icon3" />
-          <p className="footer-text3">일기 작성</p>
-        </button>
-      </div>
     </div>
   );
 }

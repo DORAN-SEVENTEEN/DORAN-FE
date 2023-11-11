@@ -25,12 +25,11 @@ function Calender() {
 
   const handleDateChange = (newDate) => {
     setDate(newDate);
-    setSelectedDateString(dayjs(newDate).format("YYYY-MM-DD"));
-
+    const date = dayjs(newDate).format("YYYY-MM-DD");
     /* 선택한 날의 일기 조회 */
     axios
       .get(
-        `https://port-0-doran-be-7lk2bloprzyfi.sel5.cloudtype.app/read/diaries-day?date=${selectedDateString}`,
+        `https://port-0-doran-be-7lk2bloprzyfi.sel5.cloudtype.app/read/diaries-day?date=${date}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -65,7 +64,7 @@ function Calender() {
 
       <div className="calender-page">
         {/* 달력 */}
-{/*         <p className="text-center">
+        {/*         <p className="text-center">
           <span className="bold"></span> {selectedDateString}
         </p> */}
         <div className="calendar">
