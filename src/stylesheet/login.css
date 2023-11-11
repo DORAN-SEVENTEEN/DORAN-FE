@@ -7,6 +7,7 @@
 }
 
 .box1{
+    
     background: #FFF;
     display: flex;
     flex-direction: column;
@@ -14,7 +15,7 @@
     justify-content: center;
     position: relative;
 
-    width: 355px;
+    width: 450px;
     display: flex;
     flex-direction: column;
     height: 700px;
@@ -26,7 +27,7 @@
 }
 
 .box2{
-    width: 300px;
+    width: 400px;
     display: flex;
     flex-direction: column;
     height: 140px;
@@ -34,9 +35,27 @@
     border: 1px solid var(--material-theme-sys-light-error-container, #F9DEDC);
     background: #FFF;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    margin-top: 20px;
+    margin-top: 45px;
     overflow-y: auto;
 }
+
+/* 스크롤바 css */
+.box2::-webkit-scrollbar {
+    width: 10px; /* 스크롤바 너비 */
+  }
+  
+  .box2::-webkit-scrollbar-track {
+    background-color: transparent; /* 스크롤바 트랙 배경색 */
+  }
+  
+  .box2::-webkit-scrollbar-thumb {
+    background-color: #FEE1E8; /* 스크롤바 색상 */
+    border-radius: 4px; /* 스크롤바 둥글기 */
+  }
+  
+  .box2::-webkit-scrollbar-thumb:hover {
+    background-color: #FEE1E8; /* 스크롤바 호버 시 색상 */
+  }
 
 .box2-text{
     color: #000;
@@ -46,15 +65,15 @@
     font-weight: 600;
     line-height: 150%; /* 19.5px */
     text-align: left;
-    width: 279px;
+    width: 370px;
     height: 100px;
-    margin-top: 15px;
+    margin-top: 10px;
     margin-left: 15px;
     white-space: pre-line; 
 }
 
 .box3{
-    width: 300px;
+    width: 400px;
     display: flex;
     flex-direction: column;
     height: 400px;
@@ -66,6 +85,24 @@
     overflow-y: auto;
 }
 
+/* 스크롤바 css */
+.box3::-webkit-scrollbar {
+    width: 10px; /* 스크롤바 너비 */
+  }
+  
+  .box3::-webkit-scrollbar-track {
+    background-color: transparent; /* 스크롤바 트랙 배경색 */
+  }
+  
+  .box3::-webkit-scrollbar-thumb {
+    background-color: #FEE1E8; /* 스크롤바 색상 */
+    border-radius: 4px; /* 스크롤바 둥글기 */
+  }
+  
+  .box3::-webkit-scrollbar-thumb:hover {
+    background-color: #FEE1E8; /* 스크롤바 호버 시 색상 */
+  }
+
 .box3-text{
     color: #000;
     font-family:'Bareun_hipi';
@@ -75,9 +112,8 @@
     line-height: 150%; /* 19.5px */
     text-align: left;
 
-    width: 279px;
+    width: 350px;
     height: 380px;
-    margin-top: 15px;
-    margin-left: 15px;
+    margin-top: -10px;
     white-space: pre-line; 
 }

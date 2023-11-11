@@ -71,7 +71,7 @@
   justify-content: center;
   position: relative;
 
-  width: 400px;
+  width: 450px;
   height: 200px;
   border-radius: 16px;
   border: 1px solid var(--material-theme-sys-light-error-container, #F9DEDC);
@@ -92,12 +92,12 @@
 }
 
 .all-page2::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.2); /* 스크롤바 색상 */
+  background-color:  #FFC5BF; /* 스크롤바 색상 */
   border-radius: 4px; /* 스크롤바 둥글기 */
 }
 
 .all-page2::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(0, 0, 0, 0.4); /* 스크롤바 호버 시 색상 */
+  background-color: #FFC5BF; /* 스크롤바 호버 시 색상 */
 }
 
 

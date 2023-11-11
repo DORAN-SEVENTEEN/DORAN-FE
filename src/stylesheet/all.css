@@ -25,7 +25,7 @@
   justify-content: center;
   position: relative;
 
-  width: 400px;
+  width: 450px;
   height: 700px;
   border-radius: 16px;
   border: 1px solid var(--material-theme-sys-light-error-container, #F9DEDC);
@@ -45,12 +45,12 @@
 }
 
 .all-page::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.2); /* 스크롤바 색상 */
+  background-color:  #FFC5BF; /* 스크롤바 색상 */
   border-radius: 4px; /* 스크롤바 둥글기 */
 }
 
 .all-page::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(0, 0, 0, 0.4); /* 스크롤바 호버 시 색상 */
+  background-color:  #FFC5BF;/* 스크롤바 호버 시 색상 */
 }
 
 
@@ -66,11 +66,11 @@
 .whitebox{
     position: relative;
     align-items: center;
-    width: 350px;
+    width: 400px;
     margin-top: 12px;
     display: flex;
     flex-direction: column;
-    height: 129px;
+    height: 160px;
     border-radius: 16px;
     border: 1px solid var(--material-theme-sys-light-error-container, #F9DEDC);
     background: #FFF;
@@ -94,7 +94,7 @@
   height: 26px;
   flex-shrink: 0;
   background: #d9d9d9;
-  margin-top: 19px;
+  margin-top: 20px;
 }
 
 .dateinfo {
@@ -107,6 +107,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: 150%; /* 19.5px */
+  margin-top: 20px;
 }
 
 .text {
@@ -125,6 +126,6 @@
 
 .deleteimg{
   position: absolute;
-  margin-top: -20px;
-  margin-left: 300px;
+  margin-top: -10px;
+  margin-left: 330px;
 }

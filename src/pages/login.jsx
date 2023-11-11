@@ -55,13 +55,15 @@ function Login() {
       <Header />
       <div className="selectedresult">
         <div className="box1">
-          <div className="dateinfo">
+          <div className="dateinfo"
+           style={{ marginTop: "10px" }}>
             <p>
               <span className="bold">{diary.date}</span>{" "}
             </p>
           </div>
           <div className="Emogi">
-            <img src={diary.iconUrl} alt="Emogi" />
+            <img src={diary.iconUrl} alt="Emogi" 
+             style={{ width: "60px", height: "60px", marginTop:"-5px"}}/>
           </div>
           <div className="box2" ref={box2Ref}>
             <p className="box2-text">{diary.contents}</p>
@@ -70,7 +72,7 @@ function Login() {
             <p className="box3-text">
               <img
                 src={diary.resultUrl}
-                style={{ width: "300px", margin: "10px" }}
+                style={{ width: "350px", margin: "10px" }}
               />
             </p>
           </div>
