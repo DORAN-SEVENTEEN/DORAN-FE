@@ -21,6 +21,7 @@ function Footer() {
     gap: "5px",
     flex: "100",
     width: "120px",
+    color: "#f1b1b0"
   };
 
   const hoveredStyle = {
@@ -45,7 +46,7 @@ function Footer() {
           onMouseLeave={() => setIsHomeHovered(false)}
         >
           <FaHome className="icon1" />
-          <p className="footer-text1">홈</p>
+          {/* <p className="footer-text1">홈</p> */}
         </button>
       </div>
       <div className="footer-mapflag">
@@ -56,7 +57,7 @@ function Footer() {
           onMouseLeave={() => setIsCalendarHovered(false)}
         >
           <BsFillCalendarHeartFill className="icon2" />
-          <p className="footer-text2">캘린더</p>
+          {/* <p className="footer-text2">캘린더</p> */}
         </button>
       </div>
     </div>

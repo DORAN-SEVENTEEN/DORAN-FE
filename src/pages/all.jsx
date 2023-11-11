@@ -79,7 +79,8 @@ function All() {
               </div>
 
               <div className="Emogi">
-                <img src={diary.iconUrl} alt="Emogi" />
+                <img src={diary.iconUrl} alt="Emogi"
+                style={{ width: "60px", height: "50px", marginTop:"-5px"}} />
               </div>
               <div className="dateinfo">
                 <p>

@@ -27,7 +27,7 @@ function Main() {
               navigate("/calender");
             }}
           >
-            캘린더로 이동하기
+            오늘의 감정 기록하기
           </button>
         </div>
       </div>

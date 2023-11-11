@@ -61,7 +61,8 @@ function Popup({ onClose }) {
           X
         </button>
         <div className="modal-div">
-          <button onClick={() => handleIconClick("./img/icon1.png")}>
+          <button className="modal-div2"
+          onClick={() => handleIconClick("./img/icon1.png")}>
             <img src="./img/icon1.png" alt="사진" />
           </button>
           <button onClick={() => handleIconClick("./img/icon2.png")}>
@@ -90,7 +91,13 @@ function Popup({ onClose }) {
           </button>
           {/* <button className="x-btn" onClick={handleIconCancel}>선택 X</button> */}
         </div>
-        <button className="post-btn" onClick={handleIconPost}>
+        <button className="post-btn" onClick={handleIconPost}
+         onMouseEnter={(e) => {
+          e.target.style.background = "#FF968A";
+        }}
+        onMouseLeave={(e) => {
+          e.target.style.background = "";
+        }}>
           기분 선택 완료
         </button>
       </div>

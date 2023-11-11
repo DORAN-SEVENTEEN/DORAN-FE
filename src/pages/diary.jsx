@@ -25,7 +25,8 @@ function Diary() {
             }}
           >
             <div style={{ display: "flex", alignItems: "center" }}>
-              <span style={{ marginRight: "10px" }}>고민상담 부탁해</span>
+              <span style={{ marginRight: "10px" }}>
+              &nbsp;&nbsp;&nbsp;고민상담 부탁해</span>
               <img
                 src="./img/search.png"
                 alt="사진"
@@ -35,9 +36,11 @@ function Diary() {
           </button>
         </div>
         <div className="speech-container">
-          <img src="./img/speechbubble.png" className="speech" />
+          <img src="./img/speechbubble.png" className="speech" 
+          style={{marginTop:'70px'}}/>
           <br />
-          <img src="./img/mainlogo.png" className="mainlogoImg" />
+          <img src="./img/mainlogo.png" className="mainlogoImg"
+            style={{marginTop:'-90px'}} />
         </div>
       </div>
       {modal && <Popup onClose={() => setModal(false)} />}
