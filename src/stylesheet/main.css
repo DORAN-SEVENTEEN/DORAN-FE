@@ -51,4 +51,17 @@
     font-weight: 400;
     line-height: normal;
     margin-top: 50px;
+    
+  }
+
+  .btn15:hover{
+    background: #FF968A;
+    color: #fff;
+  }
+
+
+
+  @keyframes motion {
+    0% {margin-top: 0px;}
+    100% {margin-top: 10px;}
   }

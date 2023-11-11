@@ -39,11 +39,11 @@
 }
 
 .box2-text{
-    color: #808080;
-    font-family: BMJUA;
-    font-size: 13px;
+    color: #000;
+    font-family: 'Bareun_hipi';
+    font-size: 17px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 600;
     line-height: 150%; /* 19.5px */
     text-align: left;
     width: 279px;
@@ -67,11 +67,11 @@
 }
 
 .box3-text{
-    color: #808080;
-    font-family: BMJUA;
-    font-size: 13px;
+    color: #000;
+    font-family:'Bareun_hipi';
+    font-size: 17px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 600;
     line-height: 150%; /* 19.5px */
     text-align: left;
 

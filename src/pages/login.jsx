@@ -14,11 +14,9 @@ function Login() {
     date: "",
     iconUrl: "",
     contents: "",
-    resultUrl: " ",
+    resultUrl: "",
   });
 
-  const [resultUrl, setResultUrl] = useState("");
-  console.log(diary.resultUrl);
   const box2Ref = useRef();
   const box3Ref = useRef();
 
@@ -28,8 +26,7 @@ function Login() {
 
       axios
         .get(
-          `https://port-0-doran-be-7lk2bloprzyfi.sel5.cloudtype.app/read/diary/${id}`,
-          { responseType: "arraybuffer" } // Specify the response type as 'arraybuffer'
+          `https://port-0-doran-be-7lk2bloprzyfi.sel5.cloudtype.app/read/diary/${id}`
         )
         .then((response) => {
           setDiary(response.data);
@@ -71,13 +68,10 @@ function Login() {
           </div>
           <div className="box3" ref={box3Ref}>
             <p className="box3-text">
-              {/* <img
-                src={"data:image/gif;base64," + diary.resultUrl}
-                alt="Result"
-                onError={(e) => console.error("Image load error:", e)}
-                style={{ width: "300px" }}
-              /> */}
-              {diary.resultUrl}
+              <img
+                src={diary.resultUrl}
+                style={{ width: "300px", margin: "10px" }}
+              />
             </p>
           </div>
         </div>

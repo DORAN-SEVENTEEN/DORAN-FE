@@ -8,6 +8,7 @@ import "../App.css";
 import html2canvas from "html2canvas";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
+import Footer from "../components/footer";
 
 const dummyData = JSON.parse(
   `{ "title": "도란도란과 함께라면 걱정 없어", "thumbnail": "https://source.unsplash.com/1600x900/?coding", 
@@ -28,10 +29,31 @@ function Result() {
   const contents = location.state.contents; //아이콘 일기 들어갈 값
   console.log(id);
   console.log(contents);
-  // const datas = {
-  //   id: id,
-  //   result: result,
-  // };
+  console.log(result);
+
+  const saveResult = (image) => {
+    const param = {
+      id: id,
+      resultUrl: image,
+    };
+
+    axios
+      .put(
+        "https://port-0-doran-be-7lk2bloprzyfi.sel5.cloudtype.app/update/result",
+        JSON.stringify(param),
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then(() => {
+        console.log("결과 저장 성공");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   // 결과 사진 저장
   const captureAndDownload = async () => {
@@ -52,29 +74,9 @@ function Result() {
       a.click();
 
       saveResult(image);
-      console.log(image);
     });
   };
 
-  const saveResult = (image) => {
-    // Create FormData object
-    const formData = new FormData();
-    formData.append("id", id);
-    formData.append("resultUrl", image);
-
-    // Send POST request with FormData
-    axios
-      .post(
-        `https://port-0-doran-be-7lk2bloprzyfi.sel5.cloudtype.app/update/result/${id}`,
-        formData
-      )
-      .then(() => {
-        console.log("결과 성공");
-      })
-      .catch((error) => {
-        console.error("Error saving result:", error);
-      });
-  };
   const handleClickAPICall = async (userInput) => {
     try {
       setIsLoading(true);
@@ -100,7 +102,6 @@ function Result() {
   return (
     <div className="container">
       {contextHolder}
-
       <DiaryInput
         messageApi={messageApi}
         isLoading={isLoading}
@@ -108,13 +109,13 @@ function Result() {
         id={id}
         contents={contents}
       />
-
       <div id="capture">
         <DiaryDisplay isLoading={isLoading} data={data} />
       </div>
       <button className="result-btn" onClick={captureAndDownload}>
         결과 저장하기
       </button>
+      <Footer />
     </div>
   );
 }

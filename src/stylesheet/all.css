@@ -20,8 +20,40 @@
 }
 
 .all-page {
-  margin-top: 30px;
+  background: #FFF;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  width: 400px;
+  height: 700px;
+  border-radius: 16px;
+  border: 1px solid var(--material-theme-sys-light-error-container, #F9DEDC);
+  background: #FFF;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  overflow-y: auto;
+  margin: 0 auto;
 }
+
+/* 스크롤바 css */
+.all-page::-webkit-scrollbar {
+  width: 10px; /* 스크롤바 너비 */
+}
+
+.all-page::-webkit-scrollbar-track {
+  background-color: transparent; /* 스크롤바 트랙 배경색 */
+}
+
+.all-page::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2); /* 스크롤바 색상 */
+  border-radius: 4px; /* 스크롤바 둥글기 */
+}
+
+.all-page::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.4); /* 스크롤바 호버 시 색상 */
+}
+
+
 
 .all-content{
     background: #FFF;
@@ -79,13 +111,20 @@
 
 .text {
   color: #000;
-  font-family: BMJUA;
-  font-size: 13px;
+  font-family: 'Bareun_hipi';
+  font-size: 17px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 150%; /* 19.5px */
   text-align: left;
   margin-top: 15px;
+  margin-left: 10px;
   white-space: pre-line; 
   width: 330px;
+}
+
+.deleteimg{
+  position: absolute;
+  margin-top: -20px;
+  margin-left: 300px;
 }

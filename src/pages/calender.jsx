@@ -25,12 +25,11 @@ function Calender() {
 
   const handleDateChange = (newDate) => {
     setDate(newDate);
-    setSelectedDateString(dayjs(newDate).format("YYYY-MM-DD"));
-
+    const date = dayjs(newDate).format("YYYY-MM-DD");
     /* 선택한 날의 일기 조회 */
     axios
       .get(
-        `https://port-0-doran-be-7lk2bloprzyfi.sel5.cloudtype.app/read/diaries-day?date=${selectedDateString}`,
+        `https://port-0-doran-be-7lk2bloprzyfi.sel5.cloudtype.app/read/diaries-day?date=${date}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -65,9 +64,9 @@ function Calender() {
 
       <div className="calender-page">
         {/* 달력 */}
-        <p className="text-center">
+        {/*         <p className="text-center">
           <span className="bold"></span> {selectedDateString}
-        </p>
+        </p> */}
         <div className="calendar">
           <div className="calendar-container">
             <Calendar
@@ -90,25 +89,27 @@ function Calender() {
         </button>
 
         {/* 날짜 선택하면 일기조회 */}
-        {diaries.map((diary) => (
-          <div
-            key={diary.id}
-            className="all-content"
-            onClick={() => handleDiaryClick(diary)}
-          >
-            <div className="whitebox">
-              <div className="Emogi">
-                <img src={diary.iconUrl} alt="Emogi" />
+        <div className="all-page2">
+          {diaries.map((diary) => (
+            <div
+              key={diary.id}
+              className="all-content"
+              onClick={() => handleDiaryClick(diary)}
+            >
+              <div className="whitebox">
+                <div className="Emogi">
+                  <img src={diary.iconUrl} alt="Emogi" />
+                </div>
+                <div className="dateinfo">
+                  <p>
+                    <span className="bold">{diary.date}</span>{" "}
+                  </p>
+                </div>
+                <div className="text">{diary.contents}</div>
               </div>
-              <div className="dateinfo">
-                <p>
-                  <span className="bold">{diary.date}</span>{" "}
-                </p>
-              </div>
-              <div className="text">{diary.contents}</div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
       <Footer />
     </div>
