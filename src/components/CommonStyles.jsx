@@ -6,8 +6,10 @@ export const Title = styled.div`
   font-weight: 700;
 `;
 export const ResultTitle = styled.div`
-  font-size: 20px;
-  margin: 10px;
+  font-size: 30px;
+  margin: 20px;
+  margin-right: 20px;
+  font-family: "BMJUA";
 `;
 export const Divider = styled.div`
   margin-top: 20px;
@@ -17,8 +19,6 @@ export const DiaryContainer = styled.div`
   border-radius: 8px;
   display: flex;
   flex-direction: column;
-
-
 `;
 export const CardContainer = styled.div`
   padding: 20px;
@@ -26,13 +26,13 @@ export const CardContainer = styled.div`
   margin: 10px 0px;
   border: 1px solid #f1b1b0;
   border-radius: 20px;
-
 `;
 export const CardTitle = styled.div`
   margin-left: 80px;
   color: #6b6b6b;
   font-size: 22px;
   margin-bottom: 20px;
+  font-family: "BMJUA";
 `;
 export const CardContent = styled.div``;
 export const ActionList = styled.ul`

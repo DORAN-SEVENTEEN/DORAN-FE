@@ -27,24 +27,19 @@ body {
   height: 100vh;
   overflow-y: scroll;
 }
-.header {
-  border: 1px solid #e7e8ee;
-  padding: 10px;
-  margin-bottom: 20px;
-  font-weight: 800;
-}
+
 .container::-webkit-scrollbar {
   width: 0.5em;
 }
 
 .container::-webkit-scrollbar-track {
-  background: #fff;
+  background: transparent;
 }
 
 .container::-webkit-scrollbar-thumb {
-  background-color: #fff;
+  background-color: transparent;
 }
 
 .container::-webkit-scrollbar-thumb:hover {
-  background: #f1f1f1;
+  background: transparent;
 }

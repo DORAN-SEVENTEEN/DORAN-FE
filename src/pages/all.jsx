@@ -15,13 +15,14 @@ function All() {
     navigate("/login", { state: diary });
   };
 
-
   //일기 delete
   const handleDiaryDelete = (id) => {
     const con_check = window.confirm("삭제하시겠습니까?");
     if (con_check) {
       axios
-        .delete(`https://port-0-doran-be-7lk2bloprzyfi.sel5.cloudtype.app/delete/diary?id=${id}`)
+        .delete(
+          `https://port-0-doran-be-7lk2bloprzyfi.sel5.cloudtype.app/delete/diary?id=${id}`
+        )
         .then((response) => {
           if (response.status === 200) {
             // 삭제 성공한 경우
@@ -34,16 +35,19 @@ function All() {
           console.log(error);
         });
     }
-  }; 
+  };
 
   //일기get
   useEffect(() => {
     axios
-      .get("https://port-0-doran-be-7lk2bloprzyfi.sel5.cloudtype.app/read/diaries", {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
+      .get(
+        "https://port-0-doran-be-7lk2bloprzyfi.sel5.cloudtype.app/read/diaries",
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
       .then((response) => {
         setDiaries(response.data);
       })

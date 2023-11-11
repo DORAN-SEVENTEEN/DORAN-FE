@@ -1,0 +1,23 @@
+.container {
+  width: 500px;
+  background-color: #fff;
+  margin: 0 auto;
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.container::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+.container::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+.container::-webkit-scrollbar-thumb {
+  background-color: #fff;
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+  background: #f1f1f1;
+}
