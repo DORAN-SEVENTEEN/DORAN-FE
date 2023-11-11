@@ -81,7 +81,7 @@ function Calender() {
           className="btn10"
           onClick={() => {
             navigate("/diary", {
-              state: { date: selectedDateString }, // 날짜 정보를 state로 전달
+              state: { date: date }, // 날짜 정보를 state로 전달
             });
           }}
         >
