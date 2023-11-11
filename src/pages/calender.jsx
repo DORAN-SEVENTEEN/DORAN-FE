@@ -65,9 +65,9 @@ function Calender() {
 
       <div className="calender-page">
         {/* 달력 */}
-        <p className="text-center">
+{/*         <p className="text-center">
           <span className="bold"></span> {selectedDateString}
-        </p>
+        </p> */}
         <div className="calendar">
           <div className="calendar-container">
             <Calendar

@@ -21,16 +21,12 @@ function All() {
     const con_check = window.confirm("삭제하시겠습니까?");
     if (con_check) {
       axios
-        .delete(`https://port-0-doran-be-7lk2bloprzyfi.sel5.cloudtype.app/delete/diary/${id}`, {
-          headers: {
-            "Content-Type": "application/json"
-          }
-        })
+        .delete(`https://port-0-doran-be-7lk2bloprzyfi.sel5.cloudtype.app/delete/diary?id=${id}`)
         .then((response) => {
           if (response.status === 200) {
             // 삭제 성공한 경우
             // 삭제된 일기를 상태에서 제거하기
-            setDiaries((prevDiaries) => prevDiaries.filter((diary) => diary.id !== id));
+            setDiaries((Diaries) => Diaries.filter((diary) => diary.id !== id));
             alert("일기가 삭제되었습니다!");
           }
         })
@@ -38,8 +34,7 @@ function All() {
           console.log(error);
         });
     }
-  };
- 
+  }; 
 
   //일기get
   useEffect(() => {
@@ -76,6 +71,7 @@ function All() {
                   alt="deleteimg"
                   style={{ width: "30px", height: "auto", marginTop: "20px" }}
                   onClick={(e) => {
+                    console.log("Delete button clicked");
                     e.stopPropagation(); // 이벤트 버블링 방지
                     handleDiaryDelete(diary.id);
                   }}
