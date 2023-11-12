@@ -11,7 +11,9 @@ import {
   ActionListItem,
 } from "./CommonStyles";
 
-import { LoadingOutlined } from "@ant-design/icons";
+import {
+  LoadingOutlined
+} from "@ant-design/icons";
 import { Image } from "antd";
 import styled from "styled-components";
 
@@ -20,6 +22,7 @@ const ThumbnailImage = styled(Image)`
   border-radius: 8px;
   margin-bottom: 15px;
 `;
+
 
 // eslint-disable-next-line react/prop-types
 
@@ -32,87 +35,80 @@ const DiaryDisplay = ({ data, isLoading }) => {
           <LoadingOutlined />
         </>
       )}
-
+     
       <ResultTitle>{data.title}</ResultTitle>
 
       <Divider />
       <CardContainer>
-        <CardTitle style={{ display: "flex", alignItems: "center" }}>
-          <img
-            src="./img/icon1.png"
-            alt="사진"
-            style={{
-              height: "40px",
-              width: "40px",
-              marginRight: "20px",
-              marginLeft: "45px",
-            }}
-          />
+      <CardTitle style={{ display: 'flex', alignItems: 'center' }}>
+         <img src="./img/icon4.png" alt="사진"
+         style={{height:'40px', width: '40px', marginRight: '20px'
+         ,marginLeft: '25px'}}/>
           내가 느낀 감정
         </CardTitle>
-        <CardContent>{data.emotional}</CardContent>
+        <CardContent>{data.summary}</CardContent>
       </CardContainer>
+
       <ThumbnailImage src={data.thumbnail} alt="Thumbnail" />
 
       <Divider />
       <CardContainer>
-        <CardTitle style={{ display: "flex", alignItems: "center" }}>
-          <img
-            src="./img/icon2.png"
-            alt="사진"
-            style={{
-              height: "40px",
-              width: "40px",
-              marginRight: "20px",
-              marginLeft: "30px",
-            }}
-          />
+      <CardTitle style={{ display: 'flex', alignItems: 'center' }}>
+        <img src="./img/icon1.png" alt="사진"
+                   style={{height:'40px', width: '40px', marginRight: '20px',
+                   marginLeft: '30px'}}/>
+      
           앞으로의 목표 설정
         </CardTitle>
-        <CardContent>{data.future_goals}</CardContent>
+        <CardContent>{data.emotional_content}</CardContent>
       </CardContainer>
 
       <Divider />
       <CardContainer>
-        <CardTitle style={{ display: "flex", alignItems: "center" }}>
-          <img
-            src="./img/icon3.png"
-            alt="사진"
-            style={{
-              height: "40px",
-              width: "40px",
-              marginRight: "20px",
-              marginLeft: "40px",
-            }}
-          />
-          자기계발 추천
+      <CardTitle style={{ display: 'flex', alignItems: 'center' }}>
+        <img src="./img/icon5.png" alt="사진"
+                   style={{height:'40px', width: '40px', marginRight: '20px'
+                   ,marginLeft: '20px'}}/>
+
+          자기개발 추천
         </CardTitle>
-        <CardContent>{data.self_improvement_recommendation}</CardContent>
+        <CardContent>{data.emotional_result}</CardContent>
       </CardContainer>
 
       <Divider />
       <CardContainer>
-        <CardTitle style={{ display: "flex", alignItems: "center" }}>
-          <img
-            src="./img/icon4.png"
-            alt="사진"
-            style={{
-              height: "40px",
-              width: "40px",
-              marginRight: "20px",
-              marginLeft: "40px",
-            }}
-          />
-          타인의 해결책
+      <CardTitle style={{ display: 'flex', alignItems: 'center' }}>
+        <img src="./img/icon3.png" alt="사진"
+                   style={{height:'40px', width: '40px', marginRight: '20px'
+                   ,marginLeft: '40px'}}/>
+
+
+        일기 분석
         </CardTitle>
-        <CardContent>{data.solution_others}</CardContent>
+        <CardContent>{data.analysis}</CardContent>
       </CardContainer>
 
       <Divider />
       <CardContainer>
+      <CardTitle style={{ display: 'flex', alignItems: 'center' }}>
+        <img src="./img/icon2.png" alt="사진"
+                   style={{height:'40px', width: '40px', marginRight: '20px'
+                   ,marginLeft: '15px'}}/>
+
+        타인의 해결책 
+        </CardTitle>
+        <CardContent>
+          {data.action_list.map((action, index) => (
+            <ActionListItem key={index}>{action}</ActionListItem>
+          ))}
+        </CardContent>
+      </CardContainer>
+
+      {/* 넣기 */}
+      <CardContainer>
         <CardTitle style={{ display: "flex", alignItems: "center" }}>
           <img
-            src="./img/icon5.png"
+            src="./img/icon6.png"
             alt="사진"
             style={{
               height: "40px",
@@ -157,6 +153,7 @@ const DiaryDisplay = ({ data, isLoading }) => {
         </CardTitle>
         <CardContent>{data.consolation_and_support}</CardContent>
       </CardContainer>
+
     </DiaryContainer>
   );
 };
